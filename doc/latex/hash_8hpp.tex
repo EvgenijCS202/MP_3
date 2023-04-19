@@ -1,0 +1,56 @@
+\hypertarget{hash_8hpp}{}\doxysection{Файл hash.\+hpp}
+\label{hash_8hpp}\index{hash.hpp@{hash.hpp}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}child.\+h\char`\"{}}\newline
+\doxysubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_hash_item}{Hash\+Item}}
+\item 
+class \mbox{\hyperlink{class_hash_table}{Hash\+Table}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ unsigned long long $>$ \mbox{\hyperlink{hash_8hpp_a83d9b53e7bd15ca15f7c4ad7b80614e6}{p\+\_\+pows}} (20)
+\item 
+unsigned long long \mbox{\hyperlink{hash_8hpp_aad4c71a0e0be026c5e82efa8a3df729d}{naive\+Hash}} (std\+::string key)
+\item 
+unsigned long long \mbox{\hyperlink{hash_8hpp_afe44cd19359a0aa95734d5d28c36a89c}{complicated\+Hash}} (std\+::string key)
+\end{DoxyCompactItemize}
+\doxysubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{hash_8hpp_ad1fd70bc3a3598bc5f4ea829baf90ba0}{hash\+Dims}} = 1000000
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Функции}
+\mbox{\Hypertarget{hash_8hpp_afe44cd19359a0aa95734d5d28c36a89c}\label{hash_8hpp_afe44cd19359a0aa95734d5d28c36a89c}} 
+\index{hash.hpp@{hash.hpp}!complicatedHash@{complicatedHash}}
+\index{complicatedHash@{complicatedHash}!hash.hpp@{hash.hpp}}
+\doxysubsubsection{\texorpdfstring{complicatedHash()}{complicatedHash()}}
+{\footnotesize\ttfamily unsigned long long complicated\+Hash (\begin{DoxyParamCaption}\item[{std\+::string}]{key }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{hash_8hpp_aad4c71a0e0be026c5e82efa8a3df729d}\label{hash_8hpp_aad4c71a0e0be026c5e82efa8a3df729d}} 
+\index{hash.hpp@{hash.hpp}!naiveHash@{naiveHash}}
+\index{naiveHash@{naiveHash}!hash.hpp@{hash.hpp}}
+\doxysubsubsection{\texorpdfstring{naiveHash()}{naiveHash()}}
+{\footnotesize\ttfamily unsigned long long naive\+Hash (\begin{DoxyParamCaption}\item[{std\+::string}]{key }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{hash_8hpp_a83d9b53e7bd15ca15f7c4ad7b80614e6}\label{hash_8hpp_a83d9b53e7bd15ca15f7c4ad7b80614e6}} 
+\index{hash.hpp@{hash.hpp}!p\_pows@{p\_pows}}
+\index{p\_pows@{p\_pows}!hash.hpp@{hash.hpp}}
+\doxysubsubsection{\texorpdfstring{p\_pows()}{p\_pows()}}
+{\footnotesize\ttfamily std\+::vector$<$ unsigned long long $>$ p\+\_\+pows (\begin{DoxyParamCaption}\item[{20}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Переменные}
+\mbox{\Hypertarget{hash_8hpp_ad1fd70bc3a3598bc5f4ea829baf90ba0}\label{hash_8hpp_ad1fd70bc3a3598bc5f4ea829baf90ba0}} 
+\index{hash.hpp@{hash.hpp}!hashDims@{hashDims}}
+\index{hashDims@{hashDims}!hash.hpp@{hash.hpp}}
+\doxysubsubsection{\texorpdfstring{hashDims}{hashDims}}
+{\footnotesize\ttfamily const int hash\+Dims = 1000000}
+

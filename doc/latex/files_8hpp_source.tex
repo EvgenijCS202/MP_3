@@ -1,0 +1,109 @@
+\hypertarget{files_8hpp_source}{}\doxysection{files.\+hpp}
+\mbox{\hyperlink{files_8hpp}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ FILES\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ FILES\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{child_8h}{child.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ std::string\ \mbox{\hyperlink{files_8hpp_ac2a6893d7e8bbb68b8648d6d205ce368}{info}}\ =\ \textcolor{stringliteral}{"{}info.txt"{}};}
+\DoxyCodeLine{00011\ std::string\ \mbox{\hyperlink{files_8hpp_a1d866a6475c1ba11c60d23fed929d1cc}{resultFile}}\ =\ \textcolor{stringliteral}{"{}res.txt"{}};}
+\DoxyCodeLine{00012\ std::string\ \mbox{\hyperlink{files_8hpp_aba9c6718c031571bb6cdcb46b8326656}{timesFile}}\ =\ \textcolor{stringliteral}{"{}times.txt"{}};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ std::ofstream\ \mbox{\hyperlink{files_8hpp_adc650e6b1f9b807c2127341ddb1a0d8f}{fout}}(\mbox{\hyperlink{files_8hpp_a1d866a6475c1ba11c60d23fed929d1cc}{resultFile}});}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{files_8hpp_a38b66dd0318fe2ac88962b5fbcd7167c}{sizesNum}}\ =\ 7;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{files_8hpp_a83ce21974231212c83bea69978290f5e}{sizes}}[7]\ =\ \{\ 100,\ 1000,\ 2000,\ 5000,\ 10000,\ 25000,\ 100000\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ std::string\ \mbox{\hyperlink{files_8hpp_a5e5e07bbbe6cb4590df36f22ec6eba9c}{randomString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ len)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ alphanum[]\ =}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ABCDEFGHIJKLMNOPQRSTUVWXYZ"{}}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}abcdefghijklmnopqrstuvwxyz"{}};}
+\DoxyCodeLine{00024\ \ \ \ \ std::string\ tmp\_s;}
+\DoxyCodeLine{00025\ \ \ \ \ tmp\_s.reserve(len);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ len;\ ++i)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ tmp\_s\ +=\ alphanum[rand()\ \%\ (\textcolor{keyword}{sizeof}(alphanum)\ -\/\ 1)];}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{return}\ tmp\_s;}
+\DoxyCodeLine{00030\ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ std::string\ \mbox{\hyperlink{files_8hpp_a8d8863256e66028e66869e48d4469edb}{randomDate}}(\textcolor{keywordtype}{int}\ minY,\ \textcolor{keywordtype}{int}\ maxY)}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{return}\ std::to\_string(rand()\ \%\ 28\ +\ 1)+\textcolor{charliteral}{'.'}+std::to\_string(rand()\ \%\ 12+1)+\textcolor{charliteral}{'.'}+std::to\_string(minY\ +\ rand()\ \%\ (maxY\ -\/\ minY));}
+\DoxyCodeLine{00035\ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{files_8hpp_a4e4a7bb9fd46d73a742f56810fcdf09f}{createInfo}}()\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ srand((\textcolor{keywordtype}{unsigned})time(NULL));}
+\DoxyCodeLine{00039\ \ \ \ \ std::ofstream\ \mbox{\hyperlink{files_8hpp_adc650e6b1f9b807c2127341ddb1a0d8f}{fout}}(\mbox{\hyperlink{files_8hpp_ac2a6893d7e8bbb68b8648d6d205ce368}{info}});}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{files_8hpp_a38b66dd0318fe2ac88962b5fbcd7167c}{sizesNum}};\ ++i)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Вывод\ числа\ записей}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{files_8hpp_adc650e6b1f9b807c2127341ddb1a0d8f}{fout}}\ <<\ \mbox{\hyperlink{files_8hpp_a83ce21974231212c83bea69978290f5e}{sizes}}[i]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{files_8hpp_a83ce21974231212c83bea69978290f5e}{sizes}}[i];\ ++j)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Вывод\ полей\ по\ порядку}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{files_8hpp_adc650e6b1f9b807c2127341ddb1a0d8f}{fout}}\ <<\ 2016\ -\/\ rand()\ \%\ 40\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};\ \ \ \textcolor{comment}{//\ Год}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{files_8hpp_adc650e6b1f9b807c2127341ddb1a0d8f}{fout}}\ <<\ rand()\ \%\ 13\ +\ 1\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};\ \ \ \textcolor{comment}{//\ Отряд}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{files_8hpp_adc650e6b1f9b807c2127341ddb1a0d8f}{fout}}\ <<\ \mbox{\hyperlink{files_8hpp_a5e5e07bbbe6cb4590df36f22ec6eba9c}{randomString}}(10)\ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};\ \ \ \textcolor{comment}{//\ ФИО}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{files_8hpp_adc650e6b1f9b807c2127341ddb1a0d8f}{fout}}\ <<\ \mbox{\hyperlink{files_8hpp_a8d8863256e66028e66869e48d4469edb}{randomDate}}(1990,\ 2016)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};\ \textcolor{comment}{//\ Дата\ рождения}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{files_8hpp_adc650e6b1f9b807c2127341ddb1a0d8f}{fout}}\ <<\ rand()\ \%\ 5\ +\ 1\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};\ \textcolor{comment}{//\ Смена}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ std::vector<std::vector<Child>>\ \mbox{\hyperlink{files_8hpp_a0841050c5843ce299ae88359ab529b39}{readInfo}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ (*hashFunc)(std::string))\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ std::ifstream\ fin(\mbox{\hyperlink{files_8hpp_ac2a6893d7e8bbb68b8648d6d205ce368}{info}});}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ std::vector<std::vector<Child>>\ result;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ dim;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ year;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{int}\ squad;}
+\DoxyCodeLine{00063\ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00064\ \ \ \ \ std::string\ date;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ shift;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{files_8hpp_a38b66dd0318fe2ac88962b5fbcd7167c}{sizesNum}};\ ++i)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Ввод\ числа\ записей}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ fin\ >>\ dim;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ std::vector<Child>\ v;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ dim;\ ++j)\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Ввод\ полей\ по\ порядку}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ fin\ >>\ year\ >>\ squad\ >>\ name\ >>\ date\ >>\ shift;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_child}{Child}}\ temp(year,\ squad,\ name,\ date,\ shift,\ hashFunc);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ v.push\_back(temp);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ result.push\_back(v);}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00081\ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{files_8hpp_ab009b8ebcafc9d979db0b276daae5eb3}{writeResult}}(std::string\ title,\ std::vector<std::vector<Child>>\&\ res)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ std::ofstream\ \mbox{\hyperlink{files_8hpp_adc650e6b1f9b807c2127341ddb1a0d8f}{fout}}(\mbox{\hyperlink{files_8hpp_a1d866a6475c1ba11c60d23fed929d1cc}{resultFile}},\ std::ios::app);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{files_8hpp_adc650e6b1f9b807c2127341ddb1a0d8f}{fout}}\ <<\ title\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{files_8hpp_a38b66dd0318fe2ac88962b5fbcd7167c}{sizesNum}};\ ++i)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Вывод\ числа\ записей}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{files_8hpp_adc650e6b1f9b807c2127341ddb1a0d8f}{fout}}\ <<\ \textcolor{stringliteral}{"{}Размер:\ "{}}\ <<\ res[i].size()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ res[i].size();\ ++j)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Вывод\ объекта}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{files_8hpp_adc650e6b1f9b807c2127341ddb1a0d8f}{fout}}\ <<\ res[i][j]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{files_8hpp_a79849479dabd1722eeb8ab8bcac7b8c7}{writeTime}}(std::string\ title,\ std::chrono::steady\_clock::time\_point\ start,\ std::chrono::steady\_clock::time\_point\ end,\ \textcolor{keywordtype}{int}\ divideBy)\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{files_8hpp_adc650e6b1f9b807c2127341ddb1a0d8f}{fout}}\ <<\ title;}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ fout\ <<\ std::chrono::duration\_cast<std::chrono::microseconds>(end\ -\/\ start).count()\ /\ divideBy\ <<\ \textcolor{stringliteral}{"{}\ [микросекунд]\(\backslash\)n"{}};}
+\DoxyCodeLine{00102\ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ FILES\_H}}
+
+\end{DoxyCode}
